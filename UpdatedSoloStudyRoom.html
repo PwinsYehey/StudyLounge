@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solo Study Room</title>
+        <link rel="stylesheet" href="UpdatedSoloStudyRoom.css">
+        <script src="https://kit.fontawesome.com/2ae1616252.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <!--Fullscreen button starts here--------------------------------------------------------------------------------------------------------------------------------->
+    <div class=fullscreen-button data-tooltip="Full Screen">
+        <button id="fullscreen"><i class="fa-solid fa-expand" ></i></button>
+    </div>
+    <!--Fullscreen ends starts here--------------------------------------------------------------------------------------------------------------------------------->
+
+    <!--Wallpaper button starts here--------------------------------------------------------------------------------------------------------------------------------->
+    <div class="wallpaper-container" id="wallpaper-container">
+        <div class="wallpaper-library" id="wallpaper-library">
+            <video id="video" src="nature1.mp4" autoplay loop muted></video>
+
+            <video id="video" src="anime1.mp4" autoplay loop muted></video>
+
+            <video id="video" src="city1.mp4" autoplay loop muted></video>
+
+            <video id="video" src="room1.mp4" autoplay loop muted></video>
+        </div>
+        <div class="wallpaper-button" id="wallpaper-button" data-tooltip="Change Background">
+            <i class="fa-solid fa-image"></i>
+        </div>
+        <div id="wallpaper-options"class="wallpaper-options">
+            <p><i class="fa-solid fa-image fa-sm"> Change Background</i></p>
+            <hr><br>
+                <button id="nature-button" onclick="changeBackground('nature')"><i class="fa-solid fa-leaf fa-xl"></i>
+                    <br><br><span class="wallpaper-title">Nature</span></button>
+                <button id="city-button" onclick="changeBackground('city')"><i class="fa-solid fa-building fa-xl"></i>
+                    <br><br><span class="wallpaper-title">City</span></button>
+                <button id="anime-button" onclick="changeBackground('anime')"><i class="fa-solid fa-wand-magic-sparkles fa-xl"></i>
+                    <br><br><span class="wallpaper-title">Anime</span></button>
+                    <br>
+                <button id="room-button" onclick="changeBackground('room')"><i class="fa-solid fa-house-user fa-xl"></i>
+                    <br><br><span class="wallpaper-title">Room</span></button>
+        </div>
+    </div>
+    <!--Wallpaper button ends here--------------------------------------------------------------------------------------------------------------------------------->
+
+    <!--Game button starts here--------------------------------------------------------------------------------------------------------------------------------->
+    <div class="game-container" id="game-container">
+        <div class="game-button" id="game-button" data-tooltip="Play Games">
+            <i class="fa-solid fa-gamepad"></i>
+        </div>
+        <div id="game-options" class="game-options">
+            <p><i class="fa-solid fa-gamepad"> Play Games</i></p>
+            <hr><br>
+                <button id="xox-button"><i class="fa-regular fa-circle-xmark fa-xl"></i>
+                    <br><br><span class="game-title">Tic Tac Toe</span></button>
+                <button id="chess-button"><i class="fa-solid fa-chess-pawn fa-xl"></i>
+                    <br><br><span class="game-title">Chess</span></button>
+                <button id="hangman-button"><i class="fa-solid fa-person fa-xl"></i>
+                    <br><br><span class="game-title">Hang Man</span></button>
+        </div>
+    </div>
+    <!--Game button ends here--------------------------------------------------------------------------------------------------------------------------------->
+
+    <!--Music button starts here--------------------------------------------------------------------------------------------------------------------------------->
+    <div class="music-container">
+        <div class="music-library" id="music-library">
+            <audio id="song">
+                <source id="music-source" src="lofi1.mp3" type="audio/mpeg">
+                
+                <source id="music-source" src="piano1.mp3" type="audio/mpeg">
+
+                <source id="music-source" src="jazz1.mp3" type="audio/mpeg">
+
+                <source id="music-source" src="ghibli1.mp3" type="audio/mpeg">
+            </audio>
+        </div>
+        <div class="music-player" id="music-player">
+            <div class="header">
+                <span id="word1">Music</span> <span id="word2">Player</span>
+            </div>
+            <div class="image" id="image">
+                <img src="" id="imagecd">
+                
+            </div>
+            <div class="details">
+                <h3 id="title"></h3>
+                <p id="musician"></p>
+            </div>
+            <div class="time">
+                <span id="start">0:00</span>
+                <span id="end">0:00</span>
+            </div>
+            <input type="range" id="progress" value="0">
+            <div class="action"> 
+                <button onclick="previousPlay()">
+                    <i class="fa-solid fa-backward-step"></i>
+                </button>
+                <button onclick="playPause()" class="play" id="play">
+                    <i class="fa-solid fa-play"></i>
+                </button>
+                <button onclick="nextPlay()">
+                    <i class="fa-solid fa-forward-step"></i>
+                </button>
+            </div>
+        </div>
+
+        <div class="music-button" id="music-button" data-tooltip="Play Music">
+            <i class="fa-solid fa-music fa-"></i>
+        </div>
+        <div id="music-options" class="music-options">
+            <p><i class="fa-solid fa-music"> Play Music</i></p>
+            <hr><br>
+                <button id="lofibeat-button"><i class="fa-solid fa-headphones fa-xl"></i>
+                    <br><br><span class="music-title">Lofi beat</span></button>
+                <button id="pianomusic-button"><i class="fa-solid fa-keyboard fa-xl"></i>
+                    <br><br><span class="music-title">Piano music</span></button>
+                <button id="jazzmusic-button"><i class="fa-solid fa-star fa-xl"></i>
+                    <br><br><span class="music-title">Jazz music</span></button>
+                    <br>
+                <button id="studioghiblimusic-button"><i class="fa-solid fa-dragon fa-xl"></i>
+                    <br><br><span class="music-title">Studio Ghibli music</span></button>
+        </div>
+    </div>
+    <!--Music button ends here--------------------------------------------------------------------------------------------------------------------------------->
+
+    <!--Tools button starts here--------------------------------------------------------------------------------------------------------------------------------->
+    <div class="tools-container" id="tools-container">
+        <div class="tools-button" id="tools-button" data-tooltip="Use Tools">
+            <i class="fa-solid fa-screwdriver-wrench"></i>
+        </div>
+        <div id="tools-options" class="tools-options">
+            <p><i class="fa-solid fa-screwdriver-wrench"> Creation Tools</i></p>
+            <hr><br>
+                <button id="notepad-button"><i class="fa-solid fa-note-sticky fa-xl"></i>
+                    <br><br><span class="tools-title">Notepad</span></button>
+                <button id="calculator-button"><i class="fa-solid fa-calculator fa-xl"></i>
+                    <br><br><span class="tools-title">Calculator</span></button>
+                <button id="timer-button"><i class="fa-regular fa-hourglass-half fa-xl"></i>
+                    <br><br><span class="tools-title">Timer</span></button>
+                    <br>
+                <button id="date-time-button"><i class="fa-regular fa-calendar-days fa-xl"></i>
+                    <br><br><span class="tools-title">Date/Time</span></button>
+        </div>
+    </div>
+    <!--Tools button ends here--------------------------------------------------------------------------------------------------------------------------------->
+
+    <!--Date/Time button starts here--------------------------------------------------------------------------------------------------------------------------------->
+    <div class="datetime-container" id="datetime-container">
+        <div class="hr-line"></div>
+            <div class="day" id="day"><h1></h1></div>
+        <div class="hr-line1"></div>
+            <div class="datetime" id="datetime"><h3></h3></div>
+    </div>
+    <!--Date/Time button ends here--------------------------------------------------------------------------------------------------------------------------------->
+
+    <!--Notepad button starts here--------------------------------------------------------------------------------------------------------------------------------->
+    <div class="notepad-container" id="notepad-container">
+        <div class="notepad-header">
+            <button id="save-button" title="Save Note"><i class="fa-solid fa-floppy-disk fa-xl"></i></button>
+            <button id="close-button" title="Close Note"><i class="fa-regular fa-x fa-lg"></i></button>
+        </div>
+        <textarea id="note" placeholder="Write your note here..."></textarea>
+    </div>
+    <!--Notepad button ends here--------------------------------------------------------------------------------------------------------------------------------->
+
+    <!--Calculator button starts here--------------------------------------------------------------------------------------------------------------------------------->
+    <div class="calculator-container" id="calculator-container">
+        <button id="close-button2" title="Close Calculator"><i class="fa-regular fa-x fa-lg"></i></button>
+        <div class="calculator">
+            <input type="text" id="display" value="0" disabled>
+            <div class="keys">
+                <button class="clear" onclick="clearDisplay()">AC</button>
+                <button class="symbol" onclick="appendToDisplay('.')">.</button>
+                <button class="symbol" onclick="appendToDisplay('%')">%</button>
+                <button class="operator"onclick="appendToDisplay('/')">/</button>
+                <button class="number" onclick="appendToDisplay('7')">7</button>
+                <button class="number" onclick="appendToDisplay('8')">8</button>
+                <button class="number" onclick="appendToDisplay('9')">9</button>
+                <button class="operator"onclick="appendToDisplay('*')">*</button>
+                <button class="number" onclick="appendToDisplay('4')">4</button>
+                <button class="number" onclick="appendToDisplay('5')">5</button>
+                <button class="number" onclick="appendToDisplay('6')">6</button>
+                <button class="operator"onclick="appendToDisplay('-')">-</button>
+                <button class="number" onclick="appendToDisplay('1')">1</button>
+                <button class="number" onclick="appendToDisplay('2')">2</button>
+                <button class="number" onclick="appendToDisplay('3')">3</button>
+                <button class="operator" onclick="appendToDisplay('+')">+</button>
+                <button class="number" onclick="appendToDisplay('0')">0</button>
+                <button class="symbol" onclick="appendToDisplay('&#40;')">(</button>
+                <button class="symbol" onclick="appendToDisplay('&#41;')">)</button>
+                <button class="symbol" onclick="backspace()">⌫</button>
+                <button class="equal" onclick="calculate()">=</button>
+            </div>
+        </div>
+    </div>
+    <!--Calculator button ends here--------------------------------------------------------------------------------------------------------------------------------->
+
+        <script src="UpdatedSoloStudyRoom.js"></script>
+</body>
+</html>
