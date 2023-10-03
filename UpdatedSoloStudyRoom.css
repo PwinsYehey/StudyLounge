@@ -1,0 +1,838 @@
+body {
+    background-color: #302b2a;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+/* Fullscreen button starts here*****************************************************************************************/
+#fullscreen {
+    word-wrap: break-word;
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    padding: 10px 20px;
+    border: none;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8.5px);
+    -webkit-backdrop-filter: blur(8.5px);
+    color: #fff;
+    text-shadow: 0 0 30px #ffffff;
+    font-size: 40px;
+    text-decoration: none;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-image 0.3s ease;
+}
+#fullscreen:hover {
+    transform: scale(1.2);
+    background-image: linear-gradient(135deg, rgb(68, 0, 255, 1), rgba(255, 0, 212, 1));
+}
+
+#fullscreen:active {
+    transform: scale(1.3);
+    background-image: linear-gradient(135deg, rgb(68, 0, 255, 1), rgba(255, 0, 212, 1));
+}
+
+.fullscreen-button::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 127px;
+    right: 48px;
+    background-image: linear-gradient(135deg, rgb(68, 0, 255, 1), rgba(255, 0, 212, 1));
+    color: #fff;
+    padding: 8px;
+    border-radius: 3px;
+    font-size: 14px;
+    text-align: center;
+    width: auto;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease, visibility 0.5s linear 0.3s;
+}
+
+.fullscreen-button:hover::before {
+    visibility: visible;
+    opacity: 1;
+}
+/* Fullscreen button starts here*****************************************************************************************/
+
+/* Wallpaper button starts here*****************************************************************************************/
+.wallpaper-library {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+}
+
+#video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.wallpaper-button {
+    word-wrap: break-word;
+    position: absolute;
+    top: 20px;
+    right: 110px;
+    padding: 10px 20px;
+    border: none;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8.5px);
+    -webkit-backdrop-filter: blur(8.5px);
+    color: #fff;
+    text-shadow: 0 0 30px #ffffff;
+    font-size: 25px;
+    text-decoration: none;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-image 0.3s ease;
+}
+
+.wallpaper-button:hover {
+    transform: scale(1.2);
+    background-image: linear-gradient(135deg, rgb(68, 0, 255, 1), rgba(255, 0, 212, 1));
+}
+
+.wallpaper-button:active {
+    transform: scale(1.3);
+    background-image: linear-gradient(135deg, rgb(68, 0, 255, 1), rgba(255, 0, 212, 1));
+}
+
+.wallpaper-button::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: 53px;
+    right: -3px;
+    background-image: linear-gradient(135deg, rgb(68, 0, 255, 1), rgba(255, 0, 212, 1));
+    color: #fff;
+    padding: 8px;
+    border-radius: 3px;
+    font-size: 11px;
+    text-align: center;
+    width: auto;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease, visibility 0.5s linear 0.3s;
+}
+
+.wallpaper-button:hover::before {
+    visibility: visible;
+    opacity: 1;
+}
+
+.wallpaper-options {
+    display: none;
+}
+
+.wallpaper-options.show {
+    display: block;
+    position: absolute;
+    top: 80px;
+    right: 30px;
+    background-color: #302b2a;
+    padding: 10px;
+    border: none;
+    border-radius: 7px;
+}
+
+.wallpaper-options p {
+    color: #e66348;
+    text-align: center;
+    text-transform: bold;
+    font-size: 25px;
+  }
+
+.wallpaper-options button {
+    margin-bottom: 4px;
+    padding: 20px 10px;
+    width: 100px;
+    word-wrap: break-word;
+    background-color: inherit;
+    border: solid inherit;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.wallpaper-options button:hover {
+    background-color: rgb(59, 63, 68);
+}
+
+.wallpaper-title {
+    color: #e66348;
+}
+
+#nature-button, #city-button, #anime-button, #room-button{
+    font-size: 11px;
+    color:#fff
+}
+/* Wallpaper button ends here******************************************************************************************/
+
+/* Games button starts here******************************************************************************************/
+.game-button {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 10px 20px;
+    border: none;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8.5px);
+    -webkit-backdrop-filter: blur(8.5px);
+    color: #fff;
+    text-shadow: 0 0 30px #ffffff;
+    font-size: 25px;
+    text-decoration: none;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-image 0.3s ease;
+} 
+
+.game-button:hover {
+    transform: scale(1.2);
+    background-image: linear-gradient(135deg, rgb(68, 0, 255, 1), rgba(255, 0, 212, 1));
+}
+
+.game-button:active {
+    transform: scale(1.3);
+    background-image: linear-gradient(135deg, rgb(68, 0, 255, 1), rgba(255, 0, 212, 1));
+}
+
+.game-button::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: 53px;
+    right: 1px;
+    background-image: linear-gradient(135deg, rgb(68, 0, 255, 1), rgba(255, 0, 212, 1));
+    color: #fff;
+    padding: 8px;
+    border-radius: 3px;
+    font-size: 11px;
+    width: auto;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease, visibility 0.5s linear 0.3s;
+}
+
+.game-button:hover::before {
+    visibility: visible;
+    opacity: 1;
+    
+}
+
+.game-options {
+    display: none;
+}
+
+.game-options.show {
+    display: block;
+    position: absolute;
+    top: 80px;
+    right: 30px;
+    background-color: #302b2a;
+    padding: 10px;
+    border: none;
+    border-radius: 7px;
+}
+
+.game-options p {
+    color:#e66348;
+    text-align: center;
+    text-transform: bold;
+    font-size: 25px;
+  }
+
+.game-options button {
+    margin: none;
+    padding: 20px 10px;
+    width: 100px;
+    word-wrap: break-word;
+    background-color: inherit;
+    border: solid inherit;
+    border-radius: 2px;
+    cursor: pointer;
+
+}
+
+.game-options button:hover {
+    background-color: rgb(59, 63, 68);
+}
+
+.game-title {
+    color:#e66348
+}
+
+#xox-button, #chess-button, #hangman-button {
+    font-size: 11px;
+    color:#fff
+}
+/* Games button ends here******************************************************************************************/
+
+/* Music button starts here******************************************************************************************/
+.music-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Josefin Sans", sans-serif;
+}
+
+.music-player {
+    text-align: center;
+    position: absolute;
+    bottom: 30px;
+    left: 80px;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 300px;
+    height: 350px;
+    overflow: hidden;
+    border-radius: 30px;
+    padding: 20px;
+    box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.05);
+    background: rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.40);
+    backdrop-filter: blur(8.5px);
+    -webkit-backdrop-filter: blur(8.5px);
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.header {
+    text-align: center;
+    margin: 0px auto;
+    padding: 5px;
+    border-bottom: 1px solid #f5f5f5;
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff;
+  }
+#word2 {
+    background-image: linear-gradient(135deg, rgb(68, 0, 255, 1), rgba(255, 0, 212, 1));
+    background-clip: text;
+    -webkit-background-clip: text; /* For Safari/Chrome */
+    color: transparent;
+}
+
+.image {
+    width: 90px;
+    height: 90px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px auto;
+    border-radius: 50%;
+    background: linear-gradient(120deg, rgb(68, 0, 255, 1), rgba(255, 0, 212, 1));
+    overflow: hidden;
+    margin-top: 15px;
+}
+#imagecd {
+    width: 82px;
+    height: 82px;
+    display: block;
+    margin: 20px auto;
+    border-radius: 50%;
+    object-fit: cover;
+    z-index: 9999;
+}
+#imagecd.play {
+    animation: 15s rotate linear infinite;
+}
+@keyframes rotate {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+}
+
+.details {
+    text-align: center;
+}
+  
+.details p {
+    color: #fff;
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+.action {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.action button {
+    background: #fff;
+    box-shadow: 5px 5px 10px 5px rgba(0, 0, 0, 0.028);
+    border-radius: 50%;
+    padding: 10px;
+    font-size: 18px;
+    width: 50px;
+    height: 50px;
+    border: none;
+    outline: none;
+    margin: 10px;
+    border: 2px solid #f8f8f8;
+    cursor: pointer;
+    transition:  all 1s ease-in-out;
+    background: #fff;
+    color: #000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.action button:hover {
+    background: linear-gradient(135deg, rgb(68, 0, 255, 1), rgba(255, 0, 212, 1));
+    transition: background 2s ease-in-out; /* Slower hover effect */
+    color: #fff;
+}
+#play {
+    background: linear-gradient(135deg, rgb(68, 0, 255, 1), rgba(255, 0, 212, 1));
+    color: #fff;
+}
+
+.time {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 20px auto 10px auto;
+    width: 90%;
+    color: #fff;
+  }
+  
+#progress {
+    margin: 0px auto;
+    display: block;
+    width: 90%;
+    -webkit-appearance: none;
+    height: 6px;
+    background: #f7f7f7;
+}
+
+#progress::-webkit-slider-thumb {
+    background: red;
+    -webkit-appearance: none;
+    width: 12px;
+    height: 12px;
+    border-radius: 3px;
+    background: linear-gradient(135deg, rgb(68, 0, 255, 1), rgba(255, 0, 212, 1));
+    transition: 0.2s ease-in-out;
+}
+
+.music-button {
+    position: absolute;
+    top: 20px;
+    right: 193px;
+    padding: 10px 20px;
+    border: none;
+    background: rgba(0, 0, 0, 0.50);
+    backdrop-filter: blur(8.5px);
+    -webkit-backdrop-filter: blur(8.5px);
+    color: #fff;
+    text-shadow: 0 0 30px #ffffff;
+    font-size: 25px;
+    text-decoration: none;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-image 0.3s ease;
+}
+
+.music-button:hover {
+    transform: scale(1.2);
+    background-image: linear-gradient(135deg, rgb(68, 0, 255, 1), rgba(255, 0, 212, 1));
+}
+
+.music-button:active {
+    transform: scale(1.3);
+    background-image: linear-gradient(135deg, rgb(68, 0, 255, 1), rgba(255, 0, 212, 1));
+}
+
+.music-button::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: 53px;
+    right: 1px;
+    background-image: linear-gradient(135deg, rgb(68, 0, 255, 1), rgba(255, 0, 212, 1));
+    color: #fff;
+    padding: 8px;
+    border-radius: 3px;
+    font-size: 11px;
+    text-align: center;
+    width: auto;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease, visibility 0.5s linear 0.3s;
+}
+
+.music-button:hover::before {
+    visibility: visible;
+    opacity: 1;
+    
+}
+
+.music-options {
+    display: none;
+}
+
+.music-options.show {
+    display: block;
+    position: absolute;
+    top: 80px;
+    right: 30px;
+    background-color: #302b2a;
+    padding: 10px;
+    border: none;
+    border-radius: 7px;
+}
+
+.music-options p {
+    color: #e66348;
+    text-align: center;
+    text-transform: bold;
+    font-size: 25px;
+  }
+
+.music-options button {
+    margin-bottom: 4px;
+    padding: 20px 10px;
+    width: 100px;
+    word-wrap: break-word;
+    background-color: inherit;
+    border: solid inherit;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.music-options button:hover {
+    background-color: rgb(59, 63, 68);
+}
+
+.music-title {
+    color: #e66348;
+}
+
+#lofibeat-button, #pianomusic-button, #jazzmusic-button, #studioghiblimusic-button{
+    font-size: 11px;
+    color:#fff
+}
+/* Music button ends here******************************************************************************************/
+
+/* Tools button starts here******************************************************************************************/
+.tools-button {
+    position: absolute;
+    top: 20px;
+    right: 275px;
+    padding: 10px 20px;
+    border: none;
+    background: rgba(0, 0, 0, 0.50);
+    backdrop-filter: blur(8.5px);
+    -webkit-backdrop-filter: blur(8.5px);
+    color: #fff;
+    text-shadow: 0 0 30px #ffffff;
+    font-size: 25px;
+    text-decoration: none;
+    border-radius: 7px;
+    cursor: pointer;
+    transition: transform 0.3s ease, background-image 0.3s ease;
+} 
+
+.tools-button:hover {
+    transform: scale(1.2);
+    background-image: linear-gradient(135deg, rgb(68, 0, 255, 1), rgba(255, 0, 212, 1));
+
+}
+
+.tools-button:active {
+    transform: scale(1.3);
+    background-image: linear-gradient(135deg, rgb(68, 0, 255, 1), rgba(255, 0, 212, 1));
+}
+
+.tools-button::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    top: 53px;
+    right: 3px;
+    background-image: linear-gradient(135deg, rgb(68, 0, 255, 1), rgba(255, 0, 212, 1));
+    color: #fff;
+    padding: 8px;
+    border-radius: 3px;
+    font-size: 11px;
+    text-align: center;
+    width: auto;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s ease, visibility 0.5s linear 0.3s;
+}
+
+.tools-button:hover::before {
+    visibility: visible;
+    opacity: 1;
+    
+}
+
+.tools-options {
+    display: none;
+}
+
+.tools-options.show {
+    display: block;
+    position: absolute;
+    top: 80px;
+    right: 30px;
+    background-color: #302b2a;
+    padding: 10px;
+    border: none;
+    border-radius: 7px;
+}
+
+.tools-options p {
+    color: #e66348;
+    text-align: center;
+    text-transform: bold;
+    font-size: 25px;
+  }
+
+.tools-options button {
+    margin-bottom: 4px;
+    padding: 20px 10px;
+    width: 100px;
+    word-wrap: break-word;
+    background-color: inherit;
+    border: solid inherit;
+    border-radius: 2px;
+    cursor: pointer;
+
+}
+
+.tools-options button:hover {
+    background-color: rgb(59, 63, 68);
+}
+
+.tools-title {
+    color: #e66348;
+}
+
+#notepad-button, #calculator-button, #timer-button, #date-time-button {
+    font-size: 11px;
+    color:#fff
+}
+/* Tools button ends here******************************************************************************************/
+
+/* date/time button starts here******************************************************************************************/
+.datetime-container {
+    display: none;
+}
+
+.datetime-container.show {
+    display: block;
+    font-family: Copperplate Gothic Light;
+    position: absolute;
+    top: 10px;
+    left: 30px;
+}
+
+.hr-line::before {
+    position: absolute;
+    top: 30px;
+    opacity: 0.8;
+    content: "";
+    display: block;
+    width: 50%;
+    height: 3.5px;
+    background-color: #8c08f9; /* You can change the color to your preference */
+    margin: 10px 0; /* Adjust the margin to control the space above and below the line */
+}
+
+.hr-line1::before {
+    position: absolute;
+    top: 150px;
+    opacity: 0.8;
+    content: "";
+    display: block;
+    width: 90%;
+    height: 3.5px;
+    background-color: #8c08f9; /* You can change the color to your preference */
+    margin: 10px 0; /* Adjust the margin to control the space above and below the line */
+}
+
+.day {
+    font-size: 40px;
+    letter-spacing: 40px;
+    background-image: linear-gradient(180deg, rgb(68, 0, 255, 1), rgba(255, 0, 212, 1));
+    background-clip: text;
+    -webkit-background-clip: text; /* For Safari/Chrome */
+    color: transparent;
+}
+
+.datetime {
+    opacity: 0.8;
+    font-size: 20px;
+    letter-spacing: 7px;
+    color: #ffffff;
+}
+/* date/time button ends here******************************************************************************************/
+
+/* Notepad button starts here******************************************************************************************/
+.notepad-container {
+    display: none;
+    
+}
+
+.notepad-container.show {
+    display: block;
+    position: absolute;
+    top: 100px;
+    right: 30px;
+    font-size: 25px;
+    border: none;
+}
+
+.notepad-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #e6b905;
+    color: white;
+    font-size: 20px;
+    cursor: grab;
+
+}
+
+#note {
+    background-color: #302b2a;
+    color:wheat;
+    width: 400px;
+    height: 300px;
+    resize: both;
+    padding-top: 45px;
+    padding-left: 5px;
+    border: none;
+}
+  
+#save-button {
+    position: relative;
+    padding: 10px 15px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+  
+#save-button:hover {
+    background-color: rgba(59, 55, 55, 0.5);
+}
+
+#close-button {
+    position: absolute;
+    right: 0px;
+    padding: 10px 15px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+#close-button:hover {
+    background-color: rgba(59, 55, 55, 0.5);
+}
+/* Notepad button ends here******************************************************************************************/
+
+/* Calculator button starts here******************************************************************************************/
+.calculator-container {
+    display: none;
+}
+
+.calculator-container.show {
+    display: block;
+    position: absolute;
+    top: 120px;
+    right: 30px;
+    border: none;
+}
+
+.calculator {
+    padding: 40px 20px 20px 20px;
+    background-color: #333;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+#display {
+    background-color: #fff;
+    border-radius: 5px;
+    color: #333;
+    font-size: 24px;
+    text-align: right;
+    padding: 10px;
+    margin-bottom: 10px;
+    min-width: 200px;
+}
+
+.keys {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.keys button {
+    background-color: #666;
+    color: #fff;
+    font-size: 20px;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.keys button.operator {
+    background-color: #ffcc99;
+}
+
+.keys button.equal {
+    padding-left: 223%;
+    padding-right: 220%;
+    background-color: #99ff99;
+}
+
+.keys button.symbol {
+    background-color: #b3b3cc;
+}
+
+.keys button.clear {
+    background-color: #ff9999;
+}
+
+.keys button:hover {
+    background-color: #444;
+}
+
+.keys button:active {
+    background-color: #222;
+}
+
+#close-button2 {
+    color: #f5f5f5;
+    position: absolute;
+    right: 0%;
+    padding: 10px 12px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+#close-button2:hover {
+    background-color: rgba(125, 116, 116, 0.5);
+}
+/* Calculator button ends here******************************************************************************************/
