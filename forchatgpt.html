@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solo Study Room</title>
+        <style>
+.tools-button {
+    position: absolute;
+    top: 20px;
+    right: 275px;
+    padding: 10px 20px;
+    border: none;
+    background: rgba(0, 0, 0, 0.50);
+    backdrop-filter: blur(8.5px);
+    -webkit-backdrop-filter: blur(8.5px);
+    color: #fff;
+    text-shadow: 0 0 30px #ffffff;
+    font-size: 25px;
+    text-decoration: none;
+    border-radius: 7px;
+    cursor: pointer;
+} 
+
+.tools-button:hover {
+    transform: scale(1.2);
+    background-image: linear-gradient(135deg, rgb(68, 0, 255, 1), rgba(255, 0, 212, 1));
+
+}
+
+.tools-button:active {
+    transform: scale(1.3);
+    background-image: linear-gradient(135deg, rgb(68, 0, 255, 1), rgba(255, 0, 212, 1));
+}
+
+
+.tools-options {
+    display: none;
+}
+
+.tools-options.show {
+    display: block;
+    position: absolute;
+    top: 80px;
+    right: 30px;
+    background-color: #302b2a;
+    padding: 10px;
+    border: none;
+    border-radius: 7px;
+}
+
+.tools-options p {
+    color: #e66348;
+    text-align: center;
+    text-transform: bold;
+    font-size: 25px;
+  }
+
+.tools-options button {
+    margin-bottom: 4px;
+    padding: 20px 10px;
+    width: 100px;
+    word-wrap: break-word;
+    background-color: inherit;
+    border: solid inherit;
+    border-radius: 2px;
+    cursor: pointer;
+
+}
+
+.tools-options button:hover {
+    background-color: rgb(59, 63, 68);
+}
+
+.game-title {
+    color: #e66348;
+}
+
+#notepad-button, #calculator-button, #timer-button, #date-time-button {
+    font-size: 11px;
+    color:#fff
+}
+
+
+
+        </style>
+        <script src="https://kit.fontawesome.com/2ae1616252.js" crossorigin="anonymous"></script>
+
+<body>
+        <div class="tools-container" id="tools-container">
+            <div class="tools-button" id="tools-button" title="Use tools">
+                <i class="fa-solid fa-screwdriver-wrench"></i>
+            </div>
+            <div id="tools-options" class="tools-options">
+                <p><i class="fa-solid fa-screwdriver-wrench"> Creation Tools</i></p>
+                <hr><br>
+                    <button id="notepad-button"><i class="fa-solid fa-note-sticky fa-xl"></i>
+                        <br><br><span class="game-title">Notepad</span></button>
+                    <button id="calculator-button"><i class="fa-solid fa-calculator fa-xl"></i>
+                        <br><br><span class="game-title">Calculator</span></button>
+                    <button id="timer-button"><i class="fa-regular fa-hourglass-half fa-xl"></i>
+                        <br><br><span class="game-title">Timer</span></button>
+                        <br>
+                    <button id="date-time-button"><i class="fa-regular fa-calendar-days fa-xl"></i>
+                        <br><br><span class="game-title">Date/Time</span></button>
+            </div>
+        </div>
+
+    <!--Timer button starts here--------------------------------------------------------------------------------------------------------------------------------->
+
+    <!--Timer button ends here--------------------------------------------------------------------------------------------------------------------------------->
+<script>
+    /* Tools button starts here*/////////////////////////////////////////////////////////////////////////////
+var toolsButton = document.getElementById("tools-button");
+var toolsOptions = document.getElementById("tools-options");
+
+    toolsButton.addEventListener("click", function() {
+        toolsOptions.classList.toggle("show");
+    });
+ /* Tools button ends here*//////////////////////////////////////////////////////////////////////////////////
+
+/* Timer button starts here*////////////////////////////////////////////////////////////////////////////////
+
+
+/* Timer button ends, here*////////////////////////////////////////////////////////////////////////////////
+</script>
+ </body>
+ </html>

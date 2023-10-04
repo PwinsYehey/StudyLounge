@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>text-shadow</title>
+        <script src="https://kit.fontawesome.com/2ae1616252.js" crossorigin="anonymous"></script>
+<style>
+/* Tools button starts here*****************************************************************************************/
+body {
+    background-color: gray;
+}
+.tools-button {
+    position: absolute;
+    top: 20px;
+    right: 275px;
+    padding: 10px 20px;
+    border: none;
+    background: rgba(0, 0, 0, 0.50);
+    backdrop-filter: blur(8.5px);
+    -webkit-backdrop-filter: blur(8.5px);
+    color: #fff;
+    text-shadow: 0 0 30px #ffffff;
+    font-size: 25px;
+    text-decoration: none;
+    border-radius: 7px;
+    cursor: pointer;
+} 
+
+.tools-button:hover {
+    transform: scale(1.2);
+    background-image: linear-gradient(135deg, rgb(68, 0, 255, 1), rgba(255, 0, 212, 1));
+
+}
+
+.tools-button:active {
+    transform: scale(1.3);
+    background-image: linear-gradient(135deg, rgb(68, 0, 255, 1), rgba(255, 0, 212, 1));
+}
+
+
+.tools-options {
+    display: none;
+}
+
+.tools-options.show {
+    display: block;
+    position: absolute;
+    top: 80px;
+    right: 30px;
+    background-color: #302b2a;
+    padding: 10px;
+    border: none;
+    border-radius: 7px;
+}
+
+.tools-options p {
+    color: #e66348;
+    text-align: center;
+    text-transform: bold;
+    font-size: 25px;
+  }
+
+.tools-options button {
+    margin-bottom: 4px;
+    padding: 20px 10px;
+    width: 100px;
+    word-wrap: break-word;
+    background-color: inherit;
+    border: solid inherit;
+    border-radius: 2px;
+    cursor: pointer;
+
+}
+
+.tools-options button:hover {
+    background-color: rgb(59, 63, 68);
+}
+
+.game-title {
+    color: #e66348;
+}
+
+#notepad-button, #calculator-button, #timer-button, #date-time-button {
+    font-size: 11px;
+    color:#fff
+}
+/* Tools button ends here*****************************************************************************************/
+/* Notepad button starts here*****************************************************************************************/
+.notepad-container {
+    display: none;
+    
+}
+
+.notepad-container.show {
+    display: block;
+    position: absolute;
+    top: 250px;
+    left: 630px;
+    
+}
+
+#note {
+    background-color: rgba(0, 0, 0, 0.6); /* Adjust the RGBA values to achieve the desired color and opacity */
+    color:wheat;
+    min-width: 280px;
+    width: 370px;
+    min-height: 180px;
+    height: 200px;
+    overflow: auto;
+    padding: 10px;
+    border: none;
+    border-radius: 8px;
+    resize: none;
+    padding-bottom: 45px;
+}
+
+.hidden { /* para sa show/hide footer*/
+  display: none;
+}
+
+.notepad-footer {
+        position: absolute;
+        bottom: 10px;
+        left: 10px;
+        background-color: #e66348;
+        padding: 3px;
+        border-radius: 40px;
+    }
+
+    .notepad-footer button {
+        padding: 5px 15px;
+        background-color: transparent;
+        color: white;
+        border: none;
+        border-radius: 30px; /* Adjust the border-radius value as needed */
+        cursor: pointer;
+        transition: transform 0.3s;
+    }
+
+    .notepad-footer button:hover {
+        background-color: rgb(49, 45, 45);
+        transform: scale(1.1);
+    }
+
+    .notepad-footer button[data-tooltip]::after {
+            content: attr(data-tooltip); /* Tooltip text from the data-tooltip attribute */
+            position: absolute;
+            transform: translateX(-50%);
+            color: white;
+            padding: 6px;
+            border-radius: 7px;
+            font-size: 12px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+            white-space: nowrap;
+    }
+
+    .notepad-footer button[id$="-notepad-button"]::after {
+    top: -28px;
+    left: 60%;
+    background-color: #e66348;
+    }
+
+    .notepad-footer button:hover::after {
+        opacity: 1;
+        visibility: visible;
+}
+.font-dropdown {
+            display: none;
+        }
+        .font-dropdown.show {
+            display: block;
+            position: absolute;
+            top: 45px;
+            left: 0px;
+            background-color: #302b2a;
+            padding: 7px;
+            border: none;
+            border-radius: 7px;
+            width: fit-content;
+        }
+
+        .font-dropdown select {
+            width: 60px;
+            font-size: 13px;
+            padding: 3px;
+            border: none;
+            border-radius: 3px;
+            
+}
+
+.font-dropdown option[data-font="Arial, sans-serif"] {
+  font-family: Arial, sans-serif;
+}
+
+.font-dropdown option[data-font="'Times New Roman', serif"] {
+  font-family: 'Times New Roman', serif;
+}
+
+.font-dropdown option[data-font="'Courier New', monospace"] {
+  font-family: 'Courier New', monospace;
+}
+
+.font-dropdown option[data-font="'Comic Sans MS', cursive"] {
+  font-family: 'Comic Sans MS', cursive;
+}
+
+.font-dropdown option[data-font="Impact, fantasy"] {
+  font-family: 'Impact', fantasy, cursive;
+}
+
+.font-dropdown option[data-font="Verdana, sans-serif"] {
+  font-family: 'Verdana, sans-serif', cursive;
+}
+/* Notepad button ends here******************************************************************************************/
+</style>
+</head>
+<body>
+<!--Tools starts here--------------------------------------------------------------------------------------------------------------------------------->
+    <div class="tools-container" id="tools-container">
+        <div class="tools-button" id="tools-button" title="Use tools">
+            <i class="fa-solid fa-screwdriver-wrench"></i>
+        </div>
+            <div id="tools-options" class="tools-options">
+                <p><i class="fa-solid fa-screwdriver-wrench"> Creation Tools</i></p>
+                <hr><br>
+                    <button id="notepad-button"><i class="fa-solid fa-note-sticky fa-xl"></i>
+                        <br><br><span class="game-title">Notepad</span></button>
+                    <button id="calculator-button"><i class="fa-solid fa-calculator fa-xl"></i>
+                        <br><br><span class="game-title">Calculator</span></button>
+                    <button id="timer-button"><i class="fa-regular fa-hourglass-half fa-xl"></i>
+                        <br><br><span class="game-title">Timer</span></button>
+                        <br>
+                    <button id="date-time-button"><i class="fa-regular fa-calendar-days fa-xl"></i>
+                        <br><br><span class="game-title">Date/Time</span></button>
+            </div>
+        </div>
+<!--Tools ends here--------------------------------------------------------------------------------------------------------------------------------->
+<!--Notepad starts here--------------------------------------------------------------------------------------------------------------------------------->
+    <div class="notepad-container" id="notepad-container">
+        <div id="note" contenteditable="true" placeholder="Write your note here..."></div>
+        <div class="notepad-footer" id="notepad-footer">
+            <button id="add-notepad-button" data-tooltip="New note"><i class="fa-solid fa-plus"></i></button>
+            <button id="delete-notepad-button" data-tooltip="Delete note"><i class="fa-solid fa-trash"></i></button>
+            <button id="text-notepad-button" data-tooltip="Customize text"><i class="fa-solid fa-t"></i></button>
+                <!-- Add a dropdown menu for font selection -->
+                    <div id="font-dropdown" class="font-dropdown">
+                        <select id="font-selector">
+                                <option hidden>Font</option>
+                                <option data-font="Arial, sans-serif">Arial</option>
+                                <option data-font="'Comic Sans MS', cursive">Comic Sans MS</option>
+                                <option data-font="'Courier New', monospace">Courier New</option>
+                                <option data-font="Impact, fantasy">Impact</option>
+                                <option data-font="'Times New Roman', serif">Times New Roman</option>
+                                <option data-font="Verdana, sans-serif">Verdana</option>
+                        </select>
+                    </div>
+            <button id="change-background-color-notepad-button" data-tooltip="Background color"><i class="fa-solid fa-fill-drip"></i></button>
+            <button id="copy-notepad-button" data-tooltip="Copy text"><i class="fa-solid fa-copy"></i></button>
+            <button id="resize-notepad-button" data-tooltip="Resize note"><i class="fa-solid fa-maximize"></i></button>
+            <button id="drag-notepad-button" data-tooltip="Drag note"><i class="fa-solid fa-hand"></i></button>
+            <button id="toggle-footer-notepad-button" data-tooltip="Show/Hide footer">
+              <i class="fa-solid fa-arrow-left"></i>
+              </button>
+        </div>
+    </div>
+</body>
+<!--Notepad button ends here--------------------------------------------------------------------------------------------------------------------------------->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  /* Tools button starts here */
+  var toolsButton = document.getElementById("tools-button");
+  var toolsOptions = document.getElementById("tools-options");
+
+  toolsButton.addEventListener("click", function () {
+    toolsOptions.classList.toggle("show");
+  });
+
+  /* Notepad button starts here */
+  var notepadButton = document.getElementById("notepad-button");
+  var notepadContainer = document.getElementById("notepad-container");
+  var notepadFooter = document.getElementById("notepad-footer");
+  var toggleFooterButton = document.getElementById("toggle-footer-notepad-button");
+  var addNote = document.getElementById("add-notepad-button");
+  var deleteNote = document.getElementById("delete-notepad-button");
+  var textNote = document.getElementById("text-notepad-button");
+  var fontDropdown = document.getElementById("font-dropdown");
+  var fontSelector = document.getElementById("font-selector");
+  var containerIndex = 0;
+
+  // To show and hide notepad containers
+    notepadButton.addEventListener("click", function () {
+    notepadContainer.classList.toggle("show");
+
+    // Toggle the visibility of duplicated notepads using containerIndex
+    for (var i = 1; i <= containerIndex; i++) {
+      var clonedNotepad = document.getElementById("notepad-container-" + i);
+      clonedNotepad.classList.toggle("show");
+    }
+  });
+
+    // to hide and show notepad footer
+  toggleFooterButton.addEventListener("click", function () {
+    var buttonsToToggle = [
+      document.getElementById("add-notepad-button"),
+      document.getElementById("delete-notepad-button"),
+      document.getElementById("text-notepad-button"),
+      document.getElementById("change-background-color-notepad-button"),
+      document.getElementById("copy-notepad-button"),
+      document.getElementById("resize-notepad-button"),
+      document.getElementById("drag-notepad-button")
+    ];
+
+    for (var i = 0; i < buttonsToToggle.length; i++) {
+      buttonsToToggle[i].classList.toggle("hidden");
+    }
+
+    if (toggleFooterButton.classList.contains("left-arrow")) {
+      toggleFooterButton.innerHTML = '<i class="fa-solid fa-arrow-left"></i>';
+      toggleFooterButton.classList.remove("left-arrow");
+    } else {
+      toggleFooterButton.innerHTML = '<i class="fa-solid fa-arrow-right"></i>';
+      toggleFooterButton.classList.add("left-arrow");
+    }
+  });
+
+  // Add notepad functionality
+  addNote.addEventListener("click", function () {
+    duplicateNotepad();
+  });
+
+  // Delete notepad functionality
+  deleteNote.addEventListener("click", function () {
+    if (containerIndex > 0) {
+      var lastNotepad = document.getElementById("notepad-container-" + containerIndex);
+      document.body.removeChild(lastNotepad);
+      containerIndex--;
+    } else {
+      // If there are no duplicated notepads, hide the original notepad
+      notepadContainer.classList.remove("show");
+    }
+  });
+
+  // Show/hide font dropdown when the "Customize text" button is clicked
+  textNote.addEventListener("click", function () {
+    fontDropdown.classList.toggle("show");
+  });
+
+  // Set the default font for the textarea
+  var defaultFont = "Arial";
+  var textarea = document.getElementById("note");
+  textarea.style.fontFamily = defaultFont;
+
+  // Add an event listener to change the font
+  fontSelector.addEventListener("change", function () {
+    var selectedFont = fontSelector.value;
+    document.execCommand("fontName", false, selectedFont);
+  });
+  
+  function duplicateNotepad() {
+    containerIndex++;
+
+    var clonedNotepad = notepadContainer.cloneNode(true);
+    clonedNotepad.classList.remove("show"); // Remove "show" class to hide initially
+    clonedNotepad.id = "notepad-container-" + containerIndex; // Set a unique ID for the cloned notepad
+
+    document.body.appendChild(clonedNotepad);
+
+    var topPosition = 250 + containerIndex * 30; // Adjust the spacing as needed
+    var leftPosition = 630 + containerIndex * 30; // Adjust the spacing as needed
+
+    clonedNotepad.style.top = topPosition + "px";
+    clonedNotepad.style.left = leftPosition + "px";
+
+    setTimeout(function () {
+      clonedNotepad.classList.add("show"); // Add the "show" class to make it visible
+    }, 100);
+
+    // Add click event listener to the "Add Note" button in the cloned notepad
+    var clonedAddNoteButton = clonedNotepad.querySelector("#add-notepad-button");
+    clonedAddNoteButton.addEventListener("click", function () {
+      duplicateNotepad();
+    });
+
+    // Add click event listener to the "Delete note" button in the cloned notepad
+    var clonedDeleteNoteButton = clonedNotepad.querySelector("#delete-notepad-button");
+    clonedDeleteNoteButton.addEventListener("click", function () {
+    document.body.removeChild(clonedNotepad);
+    containerIndex--;
+  });
+  }
+});
+</script>
+ </html>
